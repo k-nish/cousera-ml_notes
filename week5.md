@@ -1,0 +1,86 @@
+##Learning Algorithm
+Have initial parameters $\Theta^{(1)}$,$\Theta^{(2)}$,$\Theta^{(3)}$
+Unroll to get initialTheta to pass to
+fminunc(@costFucntion, initialTheta,options)
+
+
+
+funcion[jVal,gradientVec] = costFucntion(thetaVec)
+    From thetaVec reshape and get $\Theta^{(1)}$,$\Theta^{(2)}$,$\Theta^{(3)}$
+    Use forward prop/back prop to compute $D^{(1)}$, $D^{(2)}$,$D^{(3)}$ and J($\Theta$)
+    Unroll $D^{(1)}$, $D^{(2)}$,$D^{(3)}$ to get gradientVec
+
+##Gradient Checking
+###Numerical estimation of gradients
+$$\dfrac{d}{d\theta}J(\theta) \approx \dfrac{J(\theta+\varepsilon)-J(\theta-\varepsilon)}{2\varepsilon}$$
+//これをoctaveのコードで表すと
+
+```
+gradApprox = (J(theta + EPSILON) - J(theta - EPSILON))/(2*EPSILON)
+```
+
+###Parameter vector $\theta$
+$$ \theta \in R^n(\theta is "unrolled" version  \Theta^{(1)},\Theta^{(2)},\Theta^{(3)}) $$
+$$\theta = [\theta_1,\theta_2,\theta_3,...,\theta_n]$$
+
+$$\dfrac{d}{d\theta_k}J(\theta) \approx \dfrac{J(\theta_1,\theta2,...,\theta_k+\varepsilon,...,\theta_n)-J(\theta_1,\theta2,...,\theta_k-\varepsilon,...,\theta_n)}{2\varepsilon}$$
+
+//これをoctaveで実装すると
+
+```
+for i = 1:n,
+    thetaPlus = theta;
+    thetaPlus(i) = thetaPlus(i) + EPSILON;
+    thetaMinus = theta;
+    thetaMinus(i) = thetaMinus(i) - EPSILON;
+    gradApprox(i) = (J(thetaPlus)-J(thetaMinus))/(2*EPSILON);
+end;
+```
+check gradApprox $\approx$ DVec(backpropagationから導かれた微分)
+
+###Implementation Note:
+-Implement backprop to compute DVec(unrolled $D^{(1)}$, $D^{(2)}$,$D^{(3)}$)
+-Implement numerical gradient check to compute gradApprox.
+-Make sure they give similar values.
+-Turn off gradient checking. Using backprop code for learning.
+
+Important:
+Be sure to disable your gradient checking code before training your classifier. If you run numerical gradient computation on every iteration of gradient descent(or in the inner loop of costFucntion(...)) your code will be very slow.
+
+##Random Initialization
+###Initial value of $\Theta$
+for gradient descent and advanced optimization method, need initial value for $\Theta$
+`optTheta = fminunc(@costFucntion, initialTheta, options)`
+
+initialThetaの全要素をゼロで定義して論理回帰などのアルゴリズムを走らせると$a^{(2)}_1=a^{(2)}_2$は変わらないため、よい値を導くことはできない。
+
+###Rando Initialization: Symmetry breaking
+Initialize each $\Theta^{(l)}_{ij}$ to a random value in [-$\epsilon$,$\epsilon$]
+
+//これをoctaveのコードで書くと
+
+```
+Theta1 = rand(10,11)*(2*INIT_EPSILON)-INIT_EPSILON;
+Theta2 = rand(1,11)*(2*INIT_EPSILON)-INIT_EPSILON;
+```
+
+##Putting it Together
+No.of input units :Dimension of features$x^{(i)}$<br>
+NO.of output units: Number of classes
+
+###Training a neural network
+1.Randomly initialize weights<br>
+2.Implement forward propagation to get $h_{\Theta}(x^{(i)})$ for $x^{(i)}$<br>
+3.Implement code to compute cost function J($\theta$)
+4.Implement backprop to compute partial derivatives $\dfrac{d}{d\theta^{(l)}_{jk}}J(\theta)$
+
+for i =1:m
+    perform forward propagation and backpropagation using example($x^{(i)},y^{(i)}$)
+
+5.Use gradient checking to compare $\dfrac{d}{d\theta^{(l)}_{jk}}J(\theta)$ computed using backpropagation vs. using numerical estimate of gradient of $J(\Theta)$<br>
+Then disable gradient checking code.
+
+6.Use gradient descent or advanced optimization method with backpropagation to try to minimize $J(\Theta)$ as a function of parameters $\Theta$
+
+###Autonomous Driving
+backpropagationによってステアリング操作を数分で理解することができる。現在走っている自動運転の車はもっと頑強なアルゴリズムで動いていると思われるが。
