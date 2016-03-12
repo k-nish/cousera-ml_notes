@@ -3,11 +3,9 @@ Have initial parameters $\Theta^{(1)}$,$\Theta^{(2)}$,$\Theta^{(3)}$
 Unroll to get initialTheta to pass to
 fminunc(@costFucntion, initialTheta,options)
 
-
-
-funcion[jVal,gradientVec] = costFucntion(thetaVec)
-    From thetaVec reshape and get $\Theta^{(1)}$,$\Theta^{(2)}$,$\Theta^{(3)}$
-    Use forward prop/back prop to compute $D^{(1)}$, $D^{(2)}$,$D^{(3)}$ and J($\Theta$)
+funcion[jVal,gradientVec] = costFucntion(thetaVec)<br>
+    From thetaVec reshape and get $\Theta^{(1)}$,$\Theta^{(2)}$,$\Theta^{(3)}$<br>
+    Use forward prop/back prop to compute $D^{(1)}$, $D^{(2)}$,$D^{(3)}$ and J($\Theta$)<br>
     Unroll $D^{(1)}$, $D^{(2)}$,$D^{(3)}$ to get gradientVec
 
 ##Gradient Checking
@@ -49,7 +47,7 @@ Be sure to disable your gradient checking code before training your classifier. 
 
 ##Random Initialization
 ###Initial value of $\Theta$
-for gradient descent and advanced optimization method, need initial value for $\Theta$
+for gradient descent and advanced optimization method, need initial value for $\Theta$<br>
 `optTheta = fminunc(@costFucntion, initialTheta, options)`
 
 initialThetaの全要素をゼロで定義して論理回帰などのアルゴリズムを走らせると$a^{(2)}_1=a^{(2)}_2$は変わらないため、よい値を導くことはできない。
