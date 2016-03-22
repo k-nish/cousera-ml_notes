@@ -1,3 +1,24 @@
+##Forward and Backpropagation
+<ここに図を入れる></br>
+$\delta_j^{(l)}$ = "error" of cost for $a_j^{(l)}$ (unit j in layer l)
+
+Formally $\delta_j^{(l)}$ = $\dfrac{\partial}{\partial z_j}$cost(i) (for j $\geq$ 0)
+
+cost(i) = $y^{(i)}$log $h_{\theta}(x^{(i)})$ + (1 - $y^{(i)}$)log($1 - h_{\theta}(x^{(i)}))$
+
+##Advanced optimization
+function[jVal,gradient] = costFunction(theta)
+
+theta is vectors and equals to initialTheta
+
+optTheta = fminunc(@costFunction, initialTheta, options)
+
+##Neural Network(L=4)
+$\Theta^{(1)},\Theta^{(2)},\Theta^{(3)}$ - matrics(Theta1,Theta2,Theta3)  
+$D^{(1)},D^{(2)},D^{(3)}$ - matrics($D_1,D_2,D_3$)  
+"Unroll" into vectors ベクトルを展開
+
+
 ##Learning Algorithm
 Have initial parameters $\Theta^{(1)}$,$\Theta^{(2)}$,$\Theta^{(3)}$
 Unroll to get initialTheta to pass to
