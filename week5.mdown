@@ -103,3 +103,8 @@ Then disable gradient checking code.
 
 ###Autonomous Driving
 backpropagationによってステアリング操作を数分で理解することができる。現在走っている自動運転の車はもっと頑強なアルゴリズムで動いていると思われるが。
+
+###From:assigment
+1.input layer, hiden layer にバイアス項を追加
+
+1.
