@@ -115,5 +115,16 @@ $$\delta_{k}^{(3)} = (a_k^{(3)}-y_{k}) $$
 
 $$\delta^{(2)} = (\Theta^{(2)})^{T} \delta^{(3)} .* g'(z^{(2)}) $$
 
-4.
+4.差分を合計し、バイアス項を削除
+
+$$\Delta^{(l)} = \Delta^{(l)} + \delta^{(l+1)} (a^{(l)})^T $$
+
+delta2のバイアス項を削除するコードは以下の通り
+
+`delta2_excludebias = delta_2(2:end)`
+
+5.上で計算した差分を規格化して偏微分を計算
+
+$$\dfrac{\partial}{\partial \Theta_{ij} = D_ij^{(l)} = \dfrac{1}{m}\Delta_{ij}^{(l)}$$
+
 
