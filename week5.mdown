@@ -125,6 +125,6 @@ delta2のバイアス項を削除するコードは以下の通り
 
 5.上で計算した差分を規格化して偏微分を計算
 
-$$\dfrac{\partial}{\partial \Theta_{ij} = D_ij^{(l)} = \dfrac{1}{m}\Delta_{ij}^{(l)}$$
+$$\dfrac{\partial}{\partial\Theta_{ij}^{(l)}} = D_{ij}^{(l)} = \dfrac{1}{m}\Delta_{ij}^{(l)}$$
 
 
