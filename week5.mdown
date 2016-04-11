@@ -105,6 +105,8 @@ Then disable gradient checking code.
 backpropagationによってステアリング操作を数分で理解することができる。現在走っている自動運転の車はもっと頑強なアルゴリズムで動いていると思われるが。
 
 ###From:assigment
+
+####back propagationのアルゴリズム
 1.input layer, hiden layer にバイアス項を追加
 
 2.各データセットに対してfeedforward propagationと実際の数字の差分を計算する
