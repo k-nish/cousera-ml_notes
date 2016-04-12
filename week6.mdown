@@ -1,0 +1,14 @@
+##Deciding what to next
+より正確なシステムをつくるために<br>
+-より多くのデータセットを用いる<br>
+-featuresを増減させる<br>
+-polynomial features$(ex.x_1x_2)$を増やす<br>
+-λを増減させる<br>
+
+##evaluating a hypothesis
+与えられたデータセットをトレーニングセット(70%)とテストセット(30%)に分ける
+
+データセットから得られるコスト関数$J(\Theta)$を求める
+
+このコスト関数$J(\Theta)$にテストセットのデータを加え、誤差を計算する
+$$J_{test}(\Theta) = -\dfrac{1}{m_{test}}\sum_{i=1}^{m_{test}}y_{test}^{(i)}logh_{\theta}(x_{test}^{(i)})+(1-y_{test}^{(i)})logh_{\theta}(x_{test}^{(i)})$$
