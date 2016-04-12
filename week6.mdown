@@ -12,3 +12,29 @@
 
 このコスト関数$J(\Theta)$にテストセットのデータを加え、誤差を計算する
 $$J_{test}(\Theta) = -\dfrac{1}{m_{test}}\sum_{i=1}^{m_{test}}y_{test}^{(i)}logh_{\theta}(x_{test}^{(i)})+(1-y_{test}^{(i)})logh_{\theta}(x_{test}^{(i)})$$
+
+-Misclassification error(0/1misclassification error)<br>
+err($h_{\theta}(x)$,y) = {1 (if $h_{\theta}(x)$>=0.5,y=0 or $h_{\theta}(x)$<0.5 y=1) 0(otherwise)
+
+$$test error = \dfrac{1}{m_{test}}\sum_{i=1}^{m_{test}}err(h_{\theta}(x_{test}^{(i)}),y_{test}^{(i)})$$
+
+##Model Selection and train/validation/test sets
+
+##diagnosing Bias.vs Variance
+
+##Regularization and Bias/Variance
+
+##Learning Curves
+
+##Deciding What to Do Next Revisited
+
+##Prioritizing what to work on
+
+##Error works
+
+##Error Metrics for Skewed Classes
+
+##Trading Off Precision and Recall
+
+##Data for machine learning
+
