@@ -14,19 +14,41 @@
 $$J_{test}(\Theta) = -\dfrac{1}{m_{test}}\sum_{i=1}^{m_{test}}y_{test}^{(i)}logh_{\theta}(x_{test}^{(i)})+(1-y_{test}^{(i)})logh_{\theta}(x_{test}^{(i)})$$
 
 -Misclassification error(0/1misclassification error)<br>
-err($h_{\theta}(x)$,y) = {1 (if $h_{\theta}(x)$>=0.5,y=0 or $h_{\theta}(x)$<0.5 y=1) 0(otherwise)
-
-$$test error = \dfrac{1}{m_{test}}\sum_{i=1}^{m_{test}}err(h_{\theta}(x_{test}^{(i)}),y_{test}^{(i)})$$
+err($h_{\theta}(x)$,y) = $\begin{cases}
+1 & \text{$h_{\theta}(x) \ge0.5$,y=0 or $h_{\theta}(x)$<0.5,y=1のとき　}\\
+0 & \text{それ以外のとき}
+\end{cases}$
 
 ##Model Selection and train/validation/test sets
+よりよいモデル(具体的には、コスト関数の次数)を見つける手段
+データセットをtraining set/cross validation set/test setに分ける。training setで一般化されたコスト関数を用いて、cross validation setのコスト関数を考える
+
+$$J_{train}(\theta) = \dfrac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}$$
+
+$$J_{cv}(\theta) = \dfrac{1}{2m_{cv}}\sum_{i=1}^{m_{cv}}(h_{\theta}(x_{cv}^{(i)})-y_{cv}^{(i)})^{2}$$
 
 ##diagnosing Bias.vs Variance
+アルゴリズムがオーバーフィットしているのか、アンダーフィットしているのか。
+
+Bias(underfit)<br>
+ $J_{train}(\theta)$ will be high & $J_{cv} \approx J_{train}$
+
+Variance(overfit)<br>
+ $J_{train}(\theta)$ will be low & $J_{cv}(\theta)\gg J_{train}(\theta)$
 
 ##Regularization and Bias/Variance
+正規化係数の選び方(how to choose regularization parameter)
+$$h_{\theta}(x) = \theta_{0}+\theta_{1}x+\theta_{2}x^2+\theta_{3}x^3+\theta_{4}x^4$$
+$$J(\theta) = \dfrac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}+ \dfrac{\lambda}{2m}\sum_{j=1}^{m}\theta_{j}^{2}$$
+
+この$\lambda$に0,0.01,0.02,0.04,...,10.24と値を代入し、それぞれの$\theta$でJ($\theta$)が最小となる$\theta$をそれぞれ$\theta^{1}$,$\theta^{2}$,...,$\theta^{12}$としていく。もっとも$J(\theta)$が小さくなる時の次数がモデルとして適切な次数と考えられる
 
 ##Learning Curves
 
+
 ##Deciding What to Do Next Revisited
+
+assignment
 
 ##Prioritizing what to work on
 
