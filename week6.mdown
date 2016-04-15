@@ -1,5 +1,5 @@
 ##Deciding what to next
-より正確なシステムをつくるために<br>
+より正確なアルゴリズムをつくるために<br>
 -より多くのデータセットを用いる<br>
 -featuresを増減させる<br>
 -polynomial features$(ex.x_1x_2)$を増やす<br>
@@ -44,11 +44,28 @@ $$J(\theta) = \dfrac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}+ \dfr
 この$\lambda$に0,0.01,0.02,0.04,...,10.24と値を代入し、それぞれの$\theta$でJ($\theta$)が最小となる$\theta$をそれぞれ$\theta^{1}$,$\theta^{2}$,...,$\theta^{12}$としていく。もっとも$J(\theta)$が小さくなる時の次数がモデルとして適切な次数と考えられる
 
 ##Learning Curves
+-if a learning algorithm is suffering from high bias, getting more training data will not (by itself) new much.
 
+-if a learning algorithm is suffering from high variance, getting more training data is likely to help.
+
+-learing curves
+縦軸:error(予測値と実際値の誤差の二乗和)
+横軸:m(training set size)
 
 ##Deciding What to Do Next Revisited
+-よりアルゴリズムを作るために
+1.より多くのデータセットを用いる→for high variance<br>
+2.変数の数を減らす→for high variance<br>
+3.変数の数を増やす→for high bias<br>
+4.多項式の変数を増やす→for high bias<br>
+5.λを小さくする→for high bias<br>
+6.λを大きくする→for high variance<br>
 
-assignment
+####Neural networks and overfitting
+小さい(レイヤーの数や変数の数が小さい)ニューラルネットワークでは計算は速いが、underfittingになりやすい。
+それに対して、大きいニューラルネットワークでは計算が遅くなる可能性はあるもののunderfittingになることはなく、うまく正規化することでoverfittingには対処できる。
+
+従って大きいニューラルネットワークの方がよいモデルである可能性が高い。また、隠れレイヤーの数は1が基本である。
 
 ##Prioritizing what to work on
 
