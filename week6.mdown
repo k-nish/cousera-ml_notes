@@ -41,7 +41,7 @@ Variance(overfit)<br>
 $$h_{\theta}(x) = \theta_{0}+\theta_{1}x+\theta_{2}x^2+\theta_{3}x^3+\theta_{4}x^4$$
 $$J(\theta) = \dfrac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}+ \dfrac{\lambda}{2m}\sum_{j=1}^{m}\theta_{j}^{2}$$
 
-この$\lambda$に0,0.01,0.02,0.04,...,10.24と値を代入し、それぞれの$\theta$でJ($\theta$)が最小となる$\theta$をそれぞれ$\theta^{1}$,$\theta^{2}$,...,$\theta^{12}$としていく。もっとも$J(\theta)$が小さくなる時の次数がモデルとして適切な次数と考えられる
+この$\lambda$に0,0.01,0.02,0.04,...,10.24と値を代入し、それぞれの$\theta$でJ($\theta$)が最小となる$\theta$をそれぞれ$\theta^{1}$,$\theta^{2}$,...,$\theta^{12}$としていく。もっとも$J_{cv}(\theta)$が小さくなる時の次数がモデルとして適切な次数と考えられる
 
 ##Learning Curves
 -if a learning algorithm is suffering from high bias, getting more training data will not (by itself) new much.
