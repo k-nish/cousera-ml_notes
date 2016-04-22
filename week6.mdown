@@ -54,12 +54,13 @@ $$J(\theta) = \dfrac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}+ \dfr
 
 ##Deciding What to Do Next Revisited
 -よりアルゴリズムを作るために
-1.より多くのデータセットを用いる→for high variance<br>
-2.変数の数を減らす→for high variance<br>
-3.変数の数を増やす→for high bias<br>
-4.多項式の変数を増やす→for high bias<br>
-5.λを小さくする→for high bias<br>
-6.λを大きくする→for high variance<br>
+
+1. より多くのデータセットを用いる→for high variance
+2. 変数の数を減らす→for high variance
+3. 変数の数を増やす→for high bias
+4. 多項式の変数を増やす→for high bias
+5. λを小さくする→for high bias
+6. λを大きくする→for high variance
 
 ####Neural networks and overfitting
 小さい(レイヤーの数や変数の数が小さい)ニューラルネットワークでは計算は速いが、underfittingになりやすい。
@@ -68,6 +69,16 @@ $$J(\theta) = \dfrac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^{2}+ \dfr
 従って大きいニューラルネットワークの方がよいモデルである可能性が高い。また、隠れレイヤーの数は1が基本である。
 
 ##Prioritizing what to work on
+機械学習のシステム設計
+
+###スパム分類器の例
+building a spam classfier
+
+- how to spend your time to make it have low error?
+	- Collect lots of data
+	- Develop sophisticated features based on email routing information
+	- Develop sophisticated features for message body(単数形と複数形,大文字と小文字の違い)
+	- Develop sophisticated algorithm to detect misspellings
 
 ##Error works
 
