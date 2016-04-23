@@ -80,7 +80,16 @@ building a spam classfier
 	- Develop sophisticated features for message body(単数形と複数形,大文字と小文字の違い)
 	- Develop sophisticated algorithm to detect misspellings
 
-##Error works
+##Error analysis
+Recommended approach
+
+- start with a simple algorithm that you can implement quickly. Implement it and test it on your cross-validation data.
+- plot learning curves to decide if more data, more features, etc. are likely to help.
+- error analysis: manually examint the examples (in cross validation set) that your algorithm made errors on. See if you spot any systematic trend in what type of examples it is making errors on.
+
+###The importance of numerical evaluation
+各分詞形による変化など同様の単語をそう分類するべきか。"Porter Stemmer"などの"stemming"アルゴリズムを使うことが一つの解決法になる。
+stemming アルゴリズムが有用かどうかを判断するためにはそれらを実装した場合とそうでない場合でデータセットを用いて評価すればよい。(クロスバリデーションセットを用いることが正しい評価方法である。)
 
 ##Error Metrics for Skewed Classes
 
