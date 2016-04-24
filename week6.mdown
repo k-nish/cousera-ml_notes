@@ -91,7 +91,19 @@ Recommended approach
 各分詞形による変化など同様の単語をそう分類するべきか。"Porter Stemmer"などの"stemming"アルゴリズムを使うことが一つの解決法になる。
 stemming アルゴリズムが有用かどうかを判断するためにはそれらを実装した場合とそうでない場合でデータセットを用いて評価すればよい。(クロスバリデーションセットを用いることが正しい評価方法である。)
 
-##Error Metrics for Skewed Classes
+##Error Metrics for Skewed Classes(歪んだクラス)
+|                     | Actual-class = 1 | Actual-class=0 |
+| ------------------- | ---------------- | -------------- |
+| Predicted-class = 1 | True-positive    | False-positive |
+| Predicted-class = 0 | False-negative   | True-nagative  |
+
+###Precision & Recall
+y = 1 in presence of rare class that we want to detect
+Precision(精度)
+$$\dfrac{True-positives}{\#predicted-positive} = \dfrac{True-positives}{True-positive + False-positive}$$
+
+Recall(再現性)
+$$\dfrac{True-positives}{\#actual-positives} = \dfrac{True-positives}{True-positives + False positives}$$
 
 ##Trading Off Precision and Recall
 
