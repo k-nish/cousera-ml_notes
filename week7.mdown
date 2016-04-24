@@ -1,0 +1,11 @@
+##Optimization Objective
+
+##Large Margin Intuition
+
+##Mathematics Behind Large Margin Classification
+
+##Kernel Ⅰ
+
+##Kernel Ⅱ
+
+##Using An SVM
