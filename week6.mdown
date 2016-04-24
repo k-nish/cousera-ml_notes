@@ -106,6 +106,17 @@ Recall(再現性)
 $$\dfrac{True-positives}{\#actual-positives} = \dfrac{True-positives}{True-positives + False positives}$$
 
 ##Trading Off Precision and Recall
+precisionとrecallは両方高くすることはできない。自分が作りたいモデルに対して選択する必要がある。
+
+precision(P)とrecall(R)の2つの変数があり面倒なので、その閾値がいい値か評価するためにFscoreを用いる。
+Fscore:$2\dfrac{P * R}{P + R}$
 
 ##Data for machine learning
+機械学習において多少アルゴリズムが優れていなくとも、大量のデータセットを準備できればちゃんとしたアプリケーションを作ることができる。用いるデータセットに必要なのが
+
+- データセットの項目が結果を予測するのに十分な情報を持っていること。(人がそれらの情報を持って判断できるのか?)
+- low bias & low variance となること。
+	- use a learning algorithm with many parameters(e.g. logistic regression/linear regression with many features; neural network with many hidden untis.)
+	- use a very large training set(unlikely to fit)
+
 
