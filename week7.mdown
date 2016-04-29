@@ -72,5 +72,25 @@ $x_1,x_2$を座標軸にもつ座標平面上で任意の点を手動で選ぶ(�
 $f_i = similarity(x,l^{(i)})=\exp(-\dfrac{\|x-l^{(i)}\|^2}{2\sigma^2}) = \exp(\dfrac{\sum_{j=1}^{n}\|x_j-l^{(i)}\|^2}{2\sigma^2})$
 
 ##Kernel Ⅱ
+具体例を用いてカーネルを用いたSVMの実装を考える。
+データセットがm個あるとき、その全てをランドマークとしてカーネルを考えるべきであり、$f \in \mathbb{R}^{m+1},\theta \in \mathbb{R}^{m+1}$となる。<br>
+すなわち、$\theta^Tf = \theta_0f_0 + \theta_1f_1 + \theta_2f_2 + \cdots \ge 0 \Rightarrow y=1$ となる。
 
-##Using An SVM
+SVMでは以下の式の最小値問題になる。
+$\stackrel{min}{\theta}C \sum_{i=1}^{m} y^{(i)}cost_1(\theta^Tf^{(i)})+(1-y^{(i)})cost_0(\theta^Tf^{(i)})+ \dfrac{1}{2} \sum_{j=1}^{m}\theta_j^2$
+
+正規化のところでも書かれた通り、正規化項で$\theta_0$は計算に含まない。
+
+また、SVMを計算する実際のソフトでは正確には$\theta^2 = \theta^T\theta$を計算しているわけではなく、カーネルに由来するMを用いて$\theta^TM\theta$を計算している。
+
+###定数Cと$\sigma^2$の選び方
+定数Cについて<br>
+Cが大きい時($\lambda$が小さい時) lower bias, high variance →overfitしやすい<br>
+Cが小さい時($\lambda$が大きい時) high bias, lower variance →underfitしやすい<br>
+
+$\sigma^2$について<br>
+$\sigma^2$が大きい時$f_i$がゆっくりと変化するのでランドマークに近いカーネルの値が大きくなりにくい。→higher bias, lower variance<br>
+$\sigma^2$が小さい時$f_i$が早く変化するのでランドマークから少しでも離れるとカーネルの値が大きくなる。→lower bias, higher variance
+
+##Using A SVM
+
