@@ -1,8 +1,66 @@
 ##Optimization Objective
+###alternative view of logistic regression
+SVM(サポートベクトルマシン)というよりよいアルゴリズムの目的関数を考える。
+まず、論理回帰の場合の処理を思い出してみる。
+$$h_{\theta}(x) = \dfrac{1}{1 + e^{-\theta^{T}x}}$$
+と仮定した時に
+y = 1ならば$h_{\theta}(x)\approx 1$かつ $\theta^{T}x \gg 0$となってほしく、<br>
+y = 0ならば$h_{\theta}(x)\approx 0$かつ $\theta^{T}x \ll 0$となってほしい。<br>
+ここでy=1,y=0の場合のsigmoid関数をそれぞれ2本の直線で近似することを考える。<br>
+すなわち、$-logh_{\theta}(x^{(i)})$を2本の直線からなる$cost_1(\theta^{T}x^{(i)})$で近似し、同様に$-log(1-h_{\theta}(x^{(i)}))$で近似する。
+
+また論理回帰では正規化項に重みをつけていたが、SVMでは逆の項に重みをつける。<br>
+従って論理回帰の目的関数が
+$$\stackrel{min}{\theta} \dfrac{1}{m}[\sum_{i=1}^{m}y^{(i)}(-logh_{\theta}(x^{(i)}) + (1 - y^{(i)})(-log(1-h_{\theta}(x^{(i)})))] + \dfrac{\lambda}{2m} \sum_{j = 1}^{n}\theta_j^2$$
+となり、SVMの目的関数が
+$$\stackrel{min}{\theta} C[\sum_{i=1}^{m}y^{(i)}cost_1(\theta^{T}x^{(i)}) + (1 - y^{(i)})cost_0(\theta^{T}x^{(i)})] + \dfrac{1}{2} \sum_{j = 1}^{n}\theta_j^2$$
+となる。この定数の置き方においてCと$\lambda$は逆数の関係にある。
+
+SVMは確率を計算するのではなく、目的関数を最小化する$\theta$をもとめ、かつy=0か1の予想までする。
 
 ##Large Margin Intuition
+「SVMは大きなマージンを持つ分類器」という命題を説明する。<br>
+説明しやすくするためにCが十分大きいという条件で先の目的関数の最小値問題を考える。<br>
+前回の授業で行った近似を用いると以下の最小値問題を考えることと同値になる。
+
+$$\stackrel{min}{\theta}\sum_{j=1}^{n}\theta_{j}^2$$
+条件
+$\begin{cases}
+\theta^Tx \ge 1 & \text{y=1のとき}\\
+\theta^Tx \le -1 & \text{y=0のとき}
+\end{cases}$
+
+この条件でSVMを実行するとデータセットからの距離(定義が不明)が最も大きい境界を得ることができる。
 
 ##Mathematics Behind Large Margin Classification
+SVMの裏にある数学
+
+###ベクトルの内積とは
+$\[ u = \left(
+\begin{array}{c}
+u_1 \\
+u_2
+\end{array}
+\right) \]$
+
+$\[ v = \left(
+\begin{array}{c}
+v_1 \\
+v_2
+\end{array}
+\right) \]$
+
+に対して$u^Tv$を考える。
+vのuへの正射影ベクトルの長さをp(符号付長さ)とすると
+$$u^Tv = p・\|u\|=u_1v_1+u_2v_2$$
+
+SVMでは以下の条件で$\theta^Tp^{(i)}$の最小値問題を考えることになる。
+$\begin{cases}
+\|\theta\| ・p^{(i)} \ge 1 & \text{y=1のとき}\\
+\|\theta\| ・p~{(i)} \le -1& \text{y=0のとき}
+\end{cases}$
+
+$p^{(i)}$は$\theta$方向へのそれぞれのデータセット(ベクトル)の正射影の長さである。
 
 ##Kernel Ⅰ
 
