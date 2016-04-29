@@ -1,0 +1,34 @@
+##Unsupervised Learning:Introduction
+
+
+##K-Means algorithm
+
+
+##Optimization Objectiove
+
+
+##Random Initialization
+
+
+##Choosing the Number of Clusters
+
+
+##Motivation:date compression
+
+
+##Motivation: Visualization
+
+
+##Principal Component Analysis Problem Formulation
+
+
+##Principal Component Analysis Algorithm
+
+
+##Reconstrucion from Compressed Regression
+
+
+##Chossing the Number of Principal Components
+
+
+##Advise for Applying PCA
