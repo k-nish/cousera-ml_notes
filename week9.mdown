@@ -1,0 +1,48 @@
+##Problem Motivation
+
+
+##Gaussian Distribution
+
+
+##Algorithm
+
+
+##Developing and Evaluating an Anormaly Detection System
+
+
+##Anomaly Detection vs. Supervised Learning
+
+
+##Choosing What Features to Use
+
+
+##Multivariate Gaussian Distribution
+
+
+##Anomaly Detection using the Multivariate Gaussian Distribution
+
+
+##Problem Formulation
+
+
+##Content Based Recommendation
+
+
+##Collaborative Filtering
+
+
+##Collaborative Filetering Algorithm
+
+
+##Vectorization:Low Rank Matrix Factorization
+
+
+##Implementational Detail:Mean Normalization
+
+
+##Vectorization:Low Rank Matrix Factorization
+
+
+##Implementational Detail: Mean Normalization
+
+<quiz>
