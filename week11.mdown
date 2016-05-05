@@ -1,0 +1,17 @@
+##Problem Description and Pipeline
+画像認識の問題について取り組む。写真の中からテキストを取り出し分析することを試みる。そのときに必要なパイプラインは下の通り
+
+1. 画像を読み込む
+2. Text detection(文章認知)
+3. Character segmentation(文字ごとに切り分ける)
+4. Character recognition(文字を認識する)
+
+##Sliding Windows
+
+
+
+##Getting Lots of Data and Artificial Data
+
+
+##Ceiling Analysis:What Part of the Pipeline to Work on Next
+
